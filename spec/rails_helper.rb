@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'devise'
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 unless ENV['FIREFOX_PATH'].nil?
   Selenium::WebDriver::Firefox::Binary.path = ENV['FIREFOX_PATH']
@@ -18,17 +19,6 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Warden.test_mode!
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.start
-    FactoryGirl.reload
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
   end
 
   config.after(:suite) do
