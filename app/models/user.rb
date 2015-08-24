@@ -15,10 +15,6 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  avatar_file_name       :string
-#  avatar_content_type    :string
-#  avatar_file_size       :integer
-#  avatar_updated_at      :datetime
 #
 
 class User < ActiveRecord::Base
@@ -26,4 +22,5 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_one :profile
 end

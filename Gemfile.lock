@@ -107,6 +107,10 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (0.7.0)
     json (1.8.3)
     launchy (2.4.3)
@@ -143,6 +147,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -250,6 +256,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (0.1.1)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.2.2)
@@ -270,9 +277,12 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard-rspec
+  hirb
+  hirb-unicode
   launchy
   paperclip
   pg
+  pry-rails
   rails
   rails-erd
   rails_12factor
