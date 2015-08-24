@@ -7,6 +7,7 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'slim-rails'
 gem 'devise'
+gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3'
