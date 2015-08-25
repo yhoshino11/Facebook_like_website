@@ -228,6 +228,8 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -289,6 +291,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   selenium-webdriver
+  shoulda-matchers
   slim-rails
   sqlite3
   turbolinks

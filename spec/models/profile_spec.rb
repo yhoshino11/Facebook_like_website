@@ -13,11 +13,8 @@
 #  user_id             :integer
 #
 
-class Profile < ActiveRecord::Base
-  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' },
-                             default_url: '/images/:style/missing.png'
-  validates_attachment_content_type :avatar, content_type: %r{/\Aimage\/.*\Z/}
-  belongs_to :user
+require 'rails_helper'
 
-  validates :name, presence: true
+RSpec.describe Profile, type: :model do
+  it { should validate_presence_of(:name) }
 end
