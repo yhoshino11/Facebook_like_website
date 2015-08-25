@@ -13,6 +13,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'guard-rspec'
   gem 'rspec-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -28,8 +30,6 @@ end
 group :development do
   gem 'annotate'
   gem 'rails-erd'
-  gem 'better_errors'
-  gem 'binding_of_caller'
 
   gem 'pry-rails'
   gem 'hirb'

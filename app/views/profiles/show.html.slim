@@ -1,1 +1,5 @@
-= link_to t('profile.avatar.new'), new_profile_path(@user)
+- unless @user.profile.nil?
+  = image_tag @user.profile.avatar.url(:thumb), id: 'profile'
+
+- if @user == current_user
+  = link_to t('profile.avatar.new'), new_profile_path(@user)
