@@ -10,7 +10,7 @@ RSpec.describe 'Signup', type: :feature, js: true do
       fill_in 'Password', with: user.password
       fill_in 'Password confirmation', with: user.password
       click_button 'Sign up'
-      expect(page).to have_text('Home')
+      expect(page).to have_link(I18n.t('profile.link'))
     end
   end
 end

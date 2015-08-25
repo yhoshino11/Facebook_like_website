@@ -1,0 +1,3 @@
+= form_for(@profile, url: profile_path(current_user), html: { multipart: true }) do |f|
+  = f.file_field :avatar
+  = f.submit t('profile.avatar.new')

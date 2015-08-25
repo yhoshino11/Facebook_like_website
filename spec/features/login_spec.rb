@@ -13,7 +13,7 @@ RSpec.describe 'Login', type: :feature, js: true do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log in'
-      expect(page).to have_text('Home')
+      expect(page).to have_link(I18n.t('profile.link'))
     end
   end
 end

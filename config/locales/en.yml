@@ -1,5 +1,7 @@
 en:
   title: Facebook like Website
   profile:
+    link: Profile
     avatar:
       new: Upload Avatar
+      upload: Upload
