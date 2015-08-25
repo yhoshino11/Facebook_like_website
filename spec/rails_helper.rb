@@ -18,15 +18,26 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.before(:suite) do
+    DatabaseCleaner.clean
     Warden.test_mode!
   end
 
   config.after(:suite) do
+    DatabaseCleaner.clean
     Warden.test_reset!
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.clean
+    FactoryGirl.reload
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.before(:all) do
+    DatabaseCleaner.start
   end
 
   config.include Capybara::DSL

@@ -21,6 +21,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'shoulda-matchers'
   gem 'selenium-webdriver'
 end
 
@@ -29,6 +30,10 @@ group :development do
   gem 'rails-erd'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :production do
