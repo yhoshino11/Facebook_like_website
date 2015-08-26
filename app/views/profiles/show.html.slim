@@ -1,5 +1,7 @@
 - unless @user.profile.nil?
+  p= @user.profile.name
   = image_tag @user.profile.avatar.url(:thumb), id: 'profile'
 
 - if @user == current_user
+  = link_to t('profile.edit'), edit_profile_path(current_user)
   = link_to t('profile.avatar.new'), new_profile_path(@user)
