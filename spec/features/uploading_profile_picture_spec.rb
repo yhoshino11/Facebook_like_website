@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User', type: :feature, js: false do
+RSpec.describe 'User', type: :feature, js: true do
   context 'can' do
     before do
       @user = create(:user)
@@ -15,6 +15,21 @@ RSpec.describe 'User', type: :feature, js: false do
       attach_file('profile_avatar',
                   Rails.root.join('spec', 'support', 'avatar.png'))
       click_button I18n.t('profile.avatar.upload')
+    end
+
+    it 'update profile picture' do
+      attach_file('profile_avatar',
+                  Rails.root.join('spec', 'support', 'avatar.png'))
+      click_button I18n.t('profile.avatar.upload')
+
+      visit new_profile_path(@user)
+
+      attach_file('profile_avatar',
+                  Rails.root.join('spec', 'support', 'avatar.png'))
+      click_button I18n.t('profile.avatar.upload')
+    end
+
+    after do
       expect(current_path).to eq(profile_path(@user))
       expect(page).to have_css('#profile')
     end
