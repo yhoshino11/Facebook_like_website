@@ -1,0 +1,4 @@
+= form_for(current_user.profile, url: profile_path(current_user), html: { multipart: true }, method: :put) do |f|
+  = f.text_field :name
+  = f.file_field :avatar
+  = f.submit t('profile.submit')

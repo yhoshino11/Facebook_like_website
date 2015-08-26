@@ -8,6 +8,7 @@ RSpec.describe 'User', type: :feature, js: true do
       visit root_path
       click_link I18n.t('profile.link')
       click_link I18n.t('profile.avatar.new')
+      fill_in 'profile_name', with: 'yhoshino11'
       expect(current_path).to eq(new_profile_path(@user))
     end
 

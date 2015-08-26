@@ -1,6 +1,8 @@
 en:
   title: Facebook like Website
   profile:
+    submit: Update
+    edit: Edit Profile
     link: Profile
     avatar:
       new: Upload Avatar
