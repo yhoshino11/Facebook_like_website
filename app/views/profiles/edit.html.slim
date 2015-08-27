@@ -1,4 +1,5 @@
-= form_for(current_user.profile, url: profile_path(current_user), html: { multipart: true }, method: :put) do |f|
-  = f.text_field :name
-  = f.file_field :avatar
-  = f.submit t('profile.submit')
+.container
+  = form_for(current_user.profile, url: profile_path(current_user), html: { multipart: true, class: 'form-group' }, method: :put) do |f|
+    = f.text_field :name, class: 'form-control'
+    = f.file_field :avatar, class: 'form-control'
+    = f.submit t('profile.submit'), class: 'btn btn-primary'

@@ -26,7 +26,7 @@ RSpec.describe 'User', type: :feature, js: true do
       visit new_profile_path(@user)
 
       attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'avatar.png'))
+                  Rails.root.join('spec', 'support', 'update.jpg'))
       click_button I18n.t('profile.avatar.upload')
     end
 
