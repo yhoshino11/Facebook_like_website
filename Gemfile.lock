@@ -111,6 +111,9 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (0.7.0)
     json (1.8.3)
     launchy (2.4.3)
@@ -281,6 +284,7 @@ DEPENDENCIES
   guard-rspec
   hirb
   hirb-unicode
+  html2slim
   launchy
   paperclip
   pg

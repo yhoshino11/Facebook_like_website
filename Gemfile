@@ -34,6 +34,7 @@ group :development do
   gem 'pry-rails'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'html2slim'
 end
 
 group :production do

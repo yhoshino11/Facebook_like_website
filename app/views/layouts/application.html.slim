@@ -8,6 +8,8 @@ html
     = csrf_meta_tags
 
   body
-    p.notice= notice
-    p.alert= alert
+    - if user_signed_in?
+      = render 'layouts/nav'
+    / p.notice= notice
+    / p.alert= alert
     = yield
