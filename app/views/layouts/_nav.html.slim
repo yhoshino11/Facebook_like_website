@@ -1,0 +1,18 @@
+header.navbar.navbar-inverse
+  .navbar-header
+    = button_tag class: 'navbar-toggle', data: { target: '.navbar-responsive-collapse', toggle: 'collapse' } do
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    = link_to t('title'), root_path, class: 'navbar-brand'
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    ul.nav.navbar-nav.navbar-right
+      li.dropdown
+        = link_to '#', class: 'dropdown-toggle', data: { target: '#', toggle: 'dropdown' } do
+          = "Your #{t('profile.link')} "
+          b.caret
+        ul.dropdown-menu
+          li= link_to 'Check', profile_path(current_user)
+          li= link_to 'Edit',  edit_profile_path(current_user)
+          li.divider
+          li= link_to 'Sign out', '#'
