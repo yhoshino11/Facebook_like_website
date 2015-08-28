@@ -1,4 +1,7 @@
 = form_for(@profile, url: profile_path(current_user), html: { multipart: true }) do |f|
   = f.text_field :name
   = f.file_field :avatar
+  = f.text_field :twitter, placeholder: 'twitter'
+  = f.text_field :github,  placeholder: 'github'
+  = f.text_field :livecodingtv, placeholder: 'livecodingtv'
   = f.submit t('profile.avatar.new')

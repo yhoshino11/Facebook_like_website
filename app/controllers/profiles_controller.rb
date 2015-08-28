@@ -32,6 +32,10 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:avatar, :name)
+    params.require(:profile).permit(:avatar,
+                                    :name,
+                                    :twitter,
+                                    :github,
+                                    :livecodingtv)
   end
 end

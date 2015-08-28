@@ -11,6 +11,9 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  user_id             :integer
+#  twitter             :string
+#  github              :string
+#  livecodingtv        :string
 #
 
 require 'rails_helper'
