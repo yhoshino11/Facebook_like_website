@@ -1,5 +1,8 @@
 - unless @user.profile.nil?
   p= @user.profile.name
+  p= @user.profile.twitter
+  p= @user.profile.github
+  p= @user.profile.livecodingtv
   = image_tag @user.profile.avatar.url(:medium), id: 'profile'
 
 - if @user == current_user
