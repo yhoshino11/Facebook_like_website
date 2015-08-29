@@ -15,11 +15,10 @@ RSpec.describe 'Username', type: :feature, js: true do
       click_button I18n.t('profile.avatar.upload')
       expect(current_path).to eq(profile_path(@user))
 
-      # click_link I18n.t('profile.edit')
-      visit edit_profile_path(@user)
+      click_link I18n.t('profile.edit')
       expect(current_path).to eq(edit_profile_path(@user))
 
-      fill_in 'profile_name', with: 'yhoshino11'
+      fill_in 'name', with: 'yhoshino11'
       click_button I18n.t('profile.submit')
       expect(current_path).to eq(profile_path(@user))
       expect(page).to have_text('yhoshino11')
