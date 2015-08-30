@@ -1,1 +1,15 @@
-= link_to t('profile.link'), profile_path(current_user)
+.container
+  - if current_user.profile.nil?
+    .row
+      .col-sm-12
+        = link_to t('profile.empty'), new_profile_path(current_user), class: 'btn btn-success btn-lg'
+  .row
+    - User.all.each do |user|
+      - unless user.profile.nil?
+        .col-xs-4.col-sm-2
+          .card
+            .card-height-indicator
+            .card-content
+              .card-image style='display: inline;'
+                = link_to profile_path(profile.user) do
+                  = image_tag profile.avatar.url(:thumb), class: 'thumbnail', id: 'profile'

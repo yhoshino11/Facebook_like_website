@@ -8,6 +8,7 @@ gem 'turbolinks'
 gem 'slim-rails'
 gem 'devise'
 gem 'paperclip'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'sqlite3'

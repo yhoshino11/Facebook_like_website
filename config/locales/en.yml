@@ -1,6 +1,7 @@
 en:
   title: Facebook like Website
   profile:
+    empty: 'edit my profile - Your Profile is empty :('
     submit: Update
     edit: Edit Profile
     link: Profile
