@@ -11,5 +11,5 @@
             .card-height-indicator
             .card-content
               .card-image style='display: inline;'
-                = link_to profile_path(profile.user) do
-                  = image_tag profile.avatar.url(:thumb), class: 'thumbnail', id: 'profile'
+                = link_to profile_path(user) do
+                  = image_tag user.profile.avatar.url(:thumb), class: 'thumbnail', id: 'profile'
