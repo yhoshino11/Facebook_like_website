@@ -1,7 +1,11 @@
 /*
  *= require bootstrap/dist/css/bootstrap.min
+ *= require font-awesome
  *= require bootstrap-material-design/dist/css/material.min
+ *= require bootstrap-material-design/dist/css/ripples.min
  *= require_tree .
  *= require_self
  */
 .remember_me { margin-left: 5px; }
+.social { padding-right: 5px; }
+.livecodingtv { padding-left: 5px; }

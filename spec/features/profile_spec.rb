@@ -3,37 +3,56 @@ require 'rails_helper'
 RSpec.describe 'User', type: :feature, js: true do
   context 'can' do
     before do
+      User.destroy_all
       @user = create(:user)
       login_as(@user)
       visit root_path
-      click_link I18n.t('profile.link')
-      click_link I18n.t('profile.avatar.new')
-      fill_in 'name',         with: 'yhoshino11'
-      fill_in 'twitter',      with: 'https://twitter.com/yhoshino11'
-      fill_in 'github',       with: 'https://github.com/yhoshino11'
-      fill_in 'livecodingtv', with: 'https://livecoding.tv/yhoshino11'
+      click_link I18n.t('profile.empty')
+      sleep 1
       expect(current_path).to eq(new_profile_path(@user))
     end
 
     it 'upload profile picture' do
+      profile = build(:profile)
+      fill_in 'name',         with: profile.name
+      fill_in 'skype',        with: profile.skype
+      fill_in 'twitter',      with: profile.twitter
+      fill_in 'github',       with: profile.github
+      fill_in 'livecodingtv', with: profile.livecodingtv
+      select 'Norway', from: 'profile_born_country'
       attach_file('profile_avatar',
                   Rails.root.join('spec', 'support', 'avatar.png'))
-      click_button I18n.t('profile.avatar.upload')
+      click_button I18n.t('profile.submit')
+      expect(current_path).to eq(profile_path(@user))
+      expect(page).to have_css('#profile')
     end
 
     it 'update profile picture' do
-      attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'avatar.png'))
-      click_button I18n.t('profile.avatar.upload')
-
-      visit new_profile_path(@user)
-
+      profile = build(:profile)
+      fill_in 'name',         with: profile.name
+      fill_in 'skype',        with: profile.skype
+      fill_in 'twitter',      with: profile.twitter
+      fill_in 'github',       with: profile.github
+      fill_in 'livecodingtv', with: profile.livecodingtv
+      select 'Norway', from: 'profile_born_country'
       attach_file('profile_avatar',
                   Rails.root.join('spec', 'support', 'update.jpg'))
-      click_button I18n.t('profile.avatar.upload')
-    end
+      click_button I18n.t('profile.submit')
 
-    after do
+      # visit new_profile_path(@user)
+      click_link 'Your Profile'
+      click_link 'Edit'
+
+      profile1 = build(:profile)
+      fill_in 'name',         with: profile1.name
+      fill_in 'skype',        with: profile1.skype
+      fill_in 'twitter',      with: profile1.twitter
+      fill_in 'github',       with: profile1.github
+      fill_in 'livecodingtv', with: profile1.livecodingtv
+      select 'Japan', from: 'profile_born_country'
+      attach_file('profile_avatar',
+                  Rails.root.join('spec', 'support', 'cat.png'))
+      click_button I18n.t('profile.submit')
       expect(current_path).to eq(profile_path(@user))
       expect(page).to have_css('#profile')
     end

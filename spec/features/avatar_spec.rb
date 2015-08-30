@@ -9,11 +9,11 @@ RSpec.describe 'Avatar', type: :feature, js: false do
     end
 
     it 'for each User' do
-      expect(page).to have_link(I18n.t('profile.avatar.new'))
+      expect(page).to have_link(I18n.t('profile.edit'))
     end
 
     it "to be uploaded by user's profile page" do
-      click_link I18n.t('profile.avatar.new')
+      click_link I18n.t('profile.edit')
       expect(current_path).to eq(new_profile_path(@user))
     end
   end

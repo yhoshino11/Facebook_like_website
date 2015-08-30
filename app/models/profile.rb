@@ -11,9 +11,16 @@
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
 #  user_id             :integer
+#  skype               :string
 #  twitter             :string
 #  github              :string
 #  livecodingtv        :string
+#  born_country        :integer
+#  born_city           :integer
+#  residence_country   :integer
+#  residence_city      :integer
+#  status              :integer
+#  sex                 :integer
 #
 
 class Profile < ActiveRecord::Base
