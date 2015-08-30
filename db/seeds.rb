@@ -1,7 +1,8 @@
 countries = [
   { name: 'Japan' },
   { name: 'Norway' },
-  { name: 'Germany' }
+  { name: 'Germany' },
+  { name: 'Singapore' }
 ]
 
 countries.each do |country|

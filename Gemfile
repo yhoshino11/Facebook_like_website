@@ -9,6 +9,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'paperclip'
 gem 'font-awesome-rails'
+gem 'countries'
 
 group :development, :test do
   gem 'sqlite3'
