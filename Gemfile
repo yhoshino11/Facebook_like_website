@@ -9,6 +9,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'paperclip'
 gem 'font-awesome-rails'
+gem 'nested_form'
 gem 'countries'
 gem 'has_friendship', path: 'vendor/has_friendship'
 
