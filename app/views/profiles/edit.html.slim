@@ -17,4 +17,7 @@
   = f.text_field :livecodingtv,   class: 'form-control', placeholder: 'livecodingtv'
   = f.label "I'm from ",          class: 'form-control'
   = f.select :born_country,       options_for_select(@countries, current_user.profile.born_country), {},  class: 'form-control'
+  = f.label 'Languages I want to learn '
+  = f.fields_for f.object.languages do |l|
+    = l.select :name, options_for_select(['Ruby', 'Python', 'Rust'], f.object.languages.map(&:name)), {}, class: 'form-control', multiple: true
   = f.submit t('profile.submit'), class: 'btn btn-primary'

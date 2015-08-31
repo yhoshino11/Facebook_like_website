@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Login', type: :feature, js: true do
+RSpec.describe 'Login', type: :feature, js: false do
   context 'User' do
     before do
       User.destroy_all

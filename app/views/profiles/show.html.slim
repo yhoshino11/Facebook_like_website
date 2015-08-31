@@ -25,5 +25,12 @@
         - if @user.profile.livecodingtv.present?
           = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
             = fa_icon 'desktop', class: 'fa-3x livecodingtv'
-        h4= "I'm from #{@user.profile.born_country}"
-        h4= "Status: #{@user.profile.status}"
+        - if @user.profile.born_country.present?
+          h4= "I'm from #{@user.profile.born_country}"
+        - if @user.profile.status.present?
+          h4= "Status: #{@user.profile.status}"
+        - unless @user.profile.languages.nil?
+          h4 I want to learn
+          ul
+            - @user.profile.languages.each do |lang|
+              li.programming= lang.name

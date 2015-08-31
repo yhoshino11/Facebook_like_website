@@ -30,4 +30,6 @@ class Profile < ActiveRecord::Base
                                     content_type: ['image/png',
                                                    'image/jpeg']
   belongs_to :user
+  has_many :languages
+  accepts_nested_attributes_for :languages
 end

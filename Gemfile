@@ -10,6 +10,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'font-awesome-rails'
 gem 'countries'
+gem 'nested_form'
 
 group :development, :test do
   gem 'sqlite3'
