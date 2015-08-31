@@ -5,6 +5,8 @@
   = f.text_field :name,           class: 'form-control', placeholder: 'name'
   = f.label :avatar,              class: 'form-control'
   = f.file_field :avatar,         class: 'form-control'
+  = f.label :status,              class: 'form-control'
+  = f.select :status,             options_for_select(@companies, current_user.profile.status), {}, class: 'form-control'
   = f.label :skype,               class: 'form-control'
   = f.text_field :skype,          class: 'form-control', placeholder: 'skype'
   = f.label :twitter,             class: 'form-control'
@@ -13,6 +15,9 @@
   = f.text_field :github,         class: 'form-control', placeholder: 'github'
   = f.label :livecodingtv,        class: 'form-control'
   = f.text_field :livecodingtv,   class: 'form-control', placeholder: 'livecodingtv'
-  = f.label "I'm from ",  class: 'form-control'
+  = f.label "I'm from ",          class: 'form-control'
   = f.select :born_country,       options_for_select(@countries, current_user.profile.born_country), {},  class: 'form-control'
+  = f.label 'Languages I want to learn '
+  = f.fields_for f.object.languages do |l|
+    = l.select :name, options_for_select(['Ruby', 'Python', 'Rust'], f.object.languages.map(&:name)), {}, class: 'form-control', multiple: true
   = f.submit t('profile.submit'), class: 'btn btn-primary'

@@ -1,10 +1,11 @@
-countries = [
-  { name: 'Japan' },
-  { name: 'Norway' },
-  { name: 'Germany' }
+users = [
+  { email: 'yhoshino11@gmail.com',
+    password: 'password',
+    password_confirmation: 'password'
+  }
 ]
 
-countries.each do |country|
-  @country = Country.create(country)
-  puts "created #{@country.attributes}"
+users.each do |user|
+  @user = User.create(user)
+  puts "created #{@user.attributes}"
 end

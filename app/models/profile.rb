@@ -15,11 +15,11 @@
 #  twitter             :string
 #  github              :string
 #  livecodingtv        :string
-#  born_country        :integer
+#  born_country        :string
 #  born_city           :integer
-#  residence_country   :integer
+#  residence_country   :string
 #  residence_city      :integer
-#  status              :integer
+#  status              :string
 #  sex                 :integer
 #
 
@@ -30,4 +30,6 @@ class Profile < ActiveRecord::Base
                                     content_type: ['image/png',
                                                    'image/jpeg']
   belongs_to :user
+  has_many :languages
+  accepts_nested_attributes_for :languages
 end

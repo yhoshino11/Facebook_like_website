@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829075134) do
+ActiveRecord::Schema.define(version: 20150830141328) do
 
-  create_table "countries", force: :cascade do |t|
+  create_table "languages", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "learned"
+    t.integer  "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "languages", ["profile_id"], name: "index_languages_on_profile_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -32,11 +36,11 @@ ActiveRecord::Schema.define(version: 20150829075134) do
     t.string   "twitter"
     t.string   "github"
     t.string   "livecodingtv"
-    t.integer  "born_country"
+    t.string   "born_country"
     t.integer  "born_city"
-    t.integer  "residence_country"
+    t.string   "residence_country"
     t.integer  "residence_city"
-    t.integer  "status"
+    t.string   "status"
     t.integer  "sex"
   end
 

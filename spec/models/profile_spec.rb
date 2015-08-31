@@ -15,11 +15,11 @@
 #  twitter             :string
 #  github              :string
 #  livecodingtv        :string
-#  born_country        :integer
+#  born_country        :string
 #  born_city           :integer
-#  residence_country   :integer
+#  residence_country   :string
 #  residence_city      :integer
-#  status              :integer
+#  status              :string
 #  sex                 :integer
 #
 
