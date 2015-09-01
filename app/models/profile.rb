@@ -3,7 +3,7 @@
 # Table name: profiles
 #
 #  id                  :integer          not null, primary key
-#  name                :string
+#  name                :string           default("Anonymous")
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  avatar_file_name    :string

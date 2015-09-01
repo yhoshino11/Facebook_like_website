@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20150831140338) do
   add_index "languages", ["profile_id"], name: "index_languages_on_profile_id"
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "name",                default: "Anonymous"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
