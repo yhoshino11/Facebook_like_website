@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :feature, js: true do
+  before { User.destroy_all }
   context 'can' do
     before do
       country = ISO3166::Country.all_translated.sample
@@ -59,4 +60,5 @@ RSpec.describe 'User', type: :feature, js: true do
       expect(page).to have_css('#profile')
     end
   end
+  after { User.destroy_all }
 end

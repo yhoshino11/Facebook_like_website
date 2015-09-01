@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     member do
       resource :profile, except: [:destroy]
+      get :send_request
+      get :pending_requests
+      get :accept_request
     end
   end
 

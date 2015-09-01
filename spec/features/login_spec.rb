@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Login', type: :feature, js: false do
+  before { User.destroy_all }
   context 'User' do
     before do
       User.destroy_all
@@ -17,4 +18,5 @@ RSpec.describe 'Login', type: :feature, js: false do
       expect(page).to have_link(I18n.t('profile.empty'))
     end
   end
+  after { User.destroy_all }
 end
