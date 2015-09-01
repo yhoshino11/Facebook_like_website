@@ -12,7 +12,6 @@ gem 'font-awesome-rails'
 gem 'nested_form'
 gem 'countries'
 gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', branch: 'devel'
-gem 'sweetalert-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'guard-rspec'
