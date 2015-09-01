@@ -11,6 +11,8 @@
     .col-sm-3
       - if @user == current_user
         = link_to t('profile.edit'), manage_profile_path, class: 'btn btn-primary'
+        - if current_user.requested_friends.count > 0
+          = link_to "Pending Friend Request #{current_user.requested_friends.count}", pending_requests_user_path(current_user), class: 'btn btn-danger'
       - unless @user.profile.nil?
         h3= username
         - if @user.profile.skype.present?
@@ -25,12 +27,17 @@
         - if @user.profile.livecodingtv.present?
           = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
             = fa_icon 'desktop', class: 'fa-3x livecodingtv'
-        - if @user.profile.born_country.present?
-          h4= "I'm from #{@user.profile.born_country}"
-        - if @user.profile.status.present?
-          h4= "Status: #{@user.profile.status}"
-        - unless @user.profile.languages.nil?
-          h4 I want to learn
-          ul
-            - @user.profile.languages.each do |lang|
-              li.programming= lang.name
+        - if current_user.friends_with?(@user) || @user == current_user
+          - if @user.profile.born_country.present?
+            h4= "I'm from #{@user.profile.born_country}"
+          - if @user.profile.status.present?
+            h4= "Status: #{@user.profile.status}"
+          - unless @user.profile.languages.nil?
+            h4 I want to learn
+            ul
+              - @user.profile.languages.each do |lang|
+                li.programming= lang.name
+        - elsif current_user.pending_friends.include?(@user)
+          h4 Sent a Friend Request
+        - else
+          = link_to 'Send Friend Request', send_request_user_path(@user), class: 'btn btn-info f_req'
