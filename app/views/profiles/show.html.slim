@@ -15,19 +15,19 @@
           = link_to "Pending Friend Request #{current_user.requested_friends.count}", pending_requests_user_path(current_user), class: 'btn btn-danger'
       - unless @user.profile.nil?
         h3= username
-        - if @user.profile.skype.present?
-          = link_to "skype:#{@user.profile.skype}?call" do
-            = fa_icon 'skype', class: 'fa-3x social'
-        - if @user.profile.twitter.present?
-          = link_to "https://twitter.com/#{@user.profile.twitter}", target: '_blank' do
-            = fa_icon 'twitter', class: 'fa-3x social'
-        - if @user.profile.github.present?
-          = link_to "https://github.com/#{@user.profile.github}", target: '_blank' do
-            = fa_icon 'github-alt', class: 'fa-3x social'
-        - if @user.profile.livecodingtv.present?
-          = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
-            = fa_icon 'desktop', class: 'fa-3x livecodingtv'
         - if current_user.friends_with?(@user) || @user == current_user
+          - if @user.profile.skype.present?
+            = link_to "skype:#{@user.profile.skype}?call" do
+              = fa_icon 'skype', class: 'fa-3x social'
+          - if @user.profile.twitter.present?
+            = link_to "https://twitter.com/#{@user.profile.twitter}", target: '_blank' do
+              = fa_icon 'twitter', class: 'fa-3x social'
+          - if @user.profile.github.present?
+            = link_to "https://github.com/#{@user.profile.github}", target: '_blank' do
+              = fa_icon 'github-alt', class: 'fa-3x social'
+          - if @user.profile.livecodingtv.present?
+            = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
+              = fa_icon 'desktop', class: 'fa-3x livecodingtv'
           - if @user.profile.born_country.present?
             h4= "I'm from #{@user.profile.born_country}"
           - if @user.profile.status.present?
