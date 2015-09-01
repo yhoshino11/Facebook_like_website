@@ -11,6 +11,7 @@ gem 'paperclip'
 gem 'font-awesome-rails'
 gem 'nested_form'
 gem 'countries'
+gem 'gravatarify'
 gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', branch: 'devel'
 group :development, :test do
   gem 'sqlite3'

@@ -12,4 +12,4 @@
             .card-content
               .card-image style='display: inline;'
                 = link_to profile_path(user) do
-                  = image_tag user.profile.avatar.url(:thumb), class: 'thumbnail', id: 'profile'
+                  = gravatar_tag user.email, class: 'thumbnail', id: 'profile'

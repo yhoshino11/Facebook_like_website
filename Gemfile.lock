@@ -107,6 +107,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gravatarify (3.1.1)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -299,6 +300,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   font-awesome-rails
+  gravatarify
   guard-rspec
   has_friendship!
   hirb
