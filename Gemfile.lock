@@ -1,5 +1,7 @@
-PATH
-  remote: vendor/bundle/has_friendship
+GIT
+  remote: https://github.com/yhoshino11/has_friendship.git
+  revision: d4a8a8597cd30f1260bd29076866ef981e4fe699
+  branch: devel
   specs:
     has_friendship (0.0.3)
       rails
