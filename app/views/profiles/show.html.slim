@@ -14,7 +14,7 @@
       - unless @user.profile.nil?
         h3= username
         - if @user.profile.skype.present?
-          = link_to "skype:#{@user.profile.skype}?chat" do
+          = link_to "skype:#{@user.profile.skype}?call" do
             = fa_icon 'skype', class: 'fa-3x social'
         - if @user.profile.twitter.present?
           = link_to "https://twitter.com/#{@user.profile.twitter}", target: '_blank' do
