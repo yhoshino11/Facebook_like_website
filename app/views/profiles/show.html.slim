@@ -15,7 +15,10 @@
           = link_to "Pending Friend Request #{current_user.requested_friends.count}", pending_requests_user_path(current_user), class: 'btn btn-danger'
       - unless @user.profile.nil?
         h3= username
-        - if current_user.friends_with?(@user) || @user == current_user
+        - if current_user.friends_with?(@user) || @user == current_user || current_user.requested_friends.include?(@user)
+          - if current_user.requested_friends.include?(@user)
+            = link_to 'Accept', accept_request_user_path(@user), class: 'btn btn-success btn-xs'
+            = link_to 'Decline', '#', class: 'btn btn-danger btn-xs'
           - if @user.profile.skype.present?
             = link_to "skype:#{@user.profile.skype}?call" do
               = fa_icon 'skype', class: 'fa-3x social'
