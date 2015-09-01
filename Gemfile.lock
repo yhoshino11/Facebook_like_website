@@ -1,5 +1,5 @@
 PATH
-  remote: vendor/has_friendship
+  remote: vendor/bundle/has_friendship
   specs:
     has_friendship (0.0.3)
       rails
