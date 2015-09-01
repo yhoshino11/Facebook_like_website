@@ -6,7 +6,7 @@
         .card-content
           .card-image style='display: inline;'
             - unless @user.profile.nil?
-              = image_tag @user.profile.avatar.url(:medium), class: 'thumbnail', id: 'profile'
+              = gravatar_tag @user.email, class: 'thumbnail', id: 'profile'
   .row
     .col-sm-3
       - if @user == current_user
