@@ -22,6 +22,7 @@
 #  status              :string
 #  sex                 :integer
 #  bitbucket           :string
+#  f_list_privacy      :boolean
 #
 
 require 'rails_helper'
