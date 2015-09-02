@@ -28,6 +28,8 @@
         p= link_to t('profile.edit'), manage_profile_path, class: 'btn btn-primary'
         - if current_user.requested_friends.count > 0
           p= link_to "Pending Friend Request #{current_user.requested_friends.count}", pending_requests_user_path(current_user), class: 'btn btn-danger'
+      - else
+        br
       - unless @user.profile.nil?
         - if current_user.friends_with?(@user) || @user == current_user || current_user.requested_friends.include?(@user)
           - if @user.profile.skype.present?
