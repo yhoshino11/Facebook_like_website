@@ -22,4 +22,9 @@
   = f.label 'Languages I want to learn '
   = f.fields_for f.object.languages.build do |l|
     = l.select :name,             options_for_select(['Ruby', 'Python', 'Rust']), {}, class: 'form-control', multiple: true
+  .checkbox
+    = f.check_box :f_list_privacy
+    span.checkbox-material
+      span.check
+    = f.label :f_list_privacy, 'Show Your Friend List to Anonymous', class: 'remember_me'
   = f.submit t('profile.submit'), class: 'btn btn-primary'

@@ -65,7 +65,7 @@ class ProfilesController < ApplicationController
               :sex, :name, :bitbucket,
               :skype, :twitter,
               :github, :livecodingtv,
-              :born_country,
+              :born_country, :f_list_privacy,
               languages_attributes: [:name])
   end
 end
