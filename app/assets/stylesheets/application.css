@@ -9,3 +9,10 @@
 .remember_me { margin-left: 5px; }
 .social { padding-right: 5px; }
 .livecodingtv { padding-left: 5px; }
+
+h4 {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
