@@ -6,7 +6,7 @@
   .row
     - Profile.all.each do |prof|
       .col-xs-4.col-sm-2
-        = link_to profile_path(prof) do
+        = link_to profile_path(prof.user) do
           .card
             .card-height-indicator
             .card-content
