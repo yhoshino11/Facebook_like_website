@@ -22,6 +22,7 @@
 #  status              :string
 #  sex                 :integer
 #  bitbucket           :string
+#  f_list_privacy      :boolean
 #
 
 class Profile < ActiveRecord::Base
