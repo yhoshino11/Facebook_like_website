@@ -16,4 +16,4 @@
         li= link_to 'Edit',  manage_profile_path
         li= link_to 'Update Email', edit_user_registration_path
         li.divider
-        li= link_to 'Sign out', '#'
+        li= link_to 'Sign out', destroy_user_session_path, method: :delete
