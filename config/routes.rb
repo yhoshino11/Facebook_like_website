@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :send_request
       get :pending_requests
       get :accept_request
+      get :decline_request
     end
   end
 

@@ -11,7 +11,13 @@ class UsersController < ApplicationController
 
   def accept_request
     @target = User.find(params[:id])
-    @target.accept_request(current_user)
+    current_user.accept_request(@target)
+    redirect_to profile_path(@target)
+  end
+
+  def decline_request
+    @target = User.find(params[:id])
+    current_user.decline_request(@target)
     redirect_to profile_path(@target)
   end
 end
