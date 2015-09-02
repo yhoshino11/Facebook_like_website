@@ -8,11 +8,17 @@ html
     = csrf_meta_tags
 
   body
-    - if user_signed_in?
-      header.navbar.navbar-inverse
-        .container= render 'layouts/nav'
+    header.navbar.navbar-inverse
+      .container
+        = render 'layouts/nav'
     - unless notice.nil?
-      p.notice= notice
+      .container
+        .alert.alert-dismissable.alert-success
+          button.close data-dismiss="alert" type="button"  ×
+          strong= "Welcome back ( ^_^)／□☆□＼(^-^ ) ! #{notice}"
     - unless alert.nil?
-      p.alert= alert
+      .container
+        .alert.alert-dismissable.alert-danger
+          button.close data-dismiss="alert" type="button"  ×
+          strong= "Oops Σ(￣ロ￣lll) ! #{alert}"
     = yield
