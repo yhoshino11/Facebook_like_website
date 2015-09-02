@@ -6,5 +6,6 @@ en:
     edit: Edit Profile
     link: Profile
     avatar:
+      msg: 'How to setup my avatar ?'
       new: Upload Avatar
       upload: Upload
