@@ -4,13 +4,12 @@
       .col-sm-12
         = link_to t('profile.empty'), new_profile_path(current_user), class: 'btn btn-success btn-lg'
   .row
-    - User.all.each do |user|
+    - Profile.all.each do |prof|
       .col-xs-4.col-sm-2
-        - unless user.profile.nil?
-          = link_to profile_path(user) do
-            .card
-              .card-height-indicator
-              .card-content
-                .card-image style='display: inline;'
-                    = gravatar_tag user.email, :default, secure: true, class: 'thumbnail', id: 'profile'
-            h4= user.profile.name
+        = link_to profile_path(prof) do
+          .card
+            .card-height-indicator
+            .card-content
+              .card-image style='display: inline;'
+                  = gravatar_tag prof.user.email, :default, secure: true, class: 'thumbnail', id: 'profile'
+          h4= prof.name
