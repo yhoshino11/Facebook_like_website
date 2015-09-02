@@ -21,6 +21,7 @@
 #  residence_city      :integer
 #  status              :string
 #  sex                 :integer
+#  bitbucket           :string
 #
 
 class Profile < ActiveRecord::Base
