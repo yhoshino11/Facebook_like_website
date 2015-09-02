@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails'
-gem 'rails_admin'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
