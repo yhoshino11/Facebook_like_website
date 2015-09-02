@@ -16,7 +16,7 @@
   = f.label :livecodingtv,        class: 'form-control'
   = f.text_field :livecodingtv,   class: 'form-control', placeholder: 'livecodingtv'
   = f.label "I'm from ",          class: 'form-control'
-  = f.select :born_country,       options_for_select(@countries), {},  class: 'form-control'
+  = f.select :born_country,       options_for_select(@countries, @country), {},  class: 'form-control'
   = f.label 'Languages I want to learn '
   = f.fields_for f.object.languages.build do |l|
     = l.select :name, options_for_select(['Ruby', 'Python', 'Rust']), {}, class: 'form-control', multiple: true

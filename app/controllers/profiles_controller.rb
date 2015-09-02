@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.build_profile
     @countries = ISO3166::Country.all_translated
     @companies = companies
+    @country = current_user.country
   end
 
   def edit
