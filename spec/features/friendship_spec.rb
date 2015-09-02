@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'All User', type: :feature, js: true do
   context 'can' do
     before(:each) do
+      sleep 1
       User.destroy_all
+      sleep 1
       @me       = create(:user, email: 'yhoshino11@gmail.com')
       @him      = create(:user, email: 'yhoshino12@gmail.com')
       @her      = create(:user, email: 'yhoshino13@gmail.com')
@@ -16,6 +18,7 @@ RSpec.describe 'All User', type: :feature, js: true do
       login_as(@me)
       visit profile_path(@him)
       expect(page).not_to have_text('Status')
+      expect(page).to have_text(@him.profile.name)
     end
 
     it 'send friend request' do
@@ -46,6 +49,7 @@ RSpec.describe 'All User', type: :feature, js: true do
       expect(page).to have_css('.btn-danger')
 
       click_link 'Pending Friend Request 1'
+      sleep 1
       expect(current_path).to eq(pending_requests_user_path(@him))
       expect(page).to have_text(@me_prof.name)
 
