@@ -7,6 +7,7 @@
           .card-image style='display: inline;'
             - unless @user.profile.nil?
               #profile= gravatar_tag @user.email, :default, secure: true, class: 'thumbnail'
+      h4= "Signed in from #{@country}"
   .row
     .col-sm-3
       - if @user == current_user

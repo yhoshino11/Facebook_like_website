@@ -83,8 +83,6 @@ RSpec.describe 'All User', type: :feature, js: true do
 
       click_link 'Decline'
       sleep 1
-      # save_and_open_page
-      # expect(current_path).to eq(decline_request_user_path(@me))
       expect(current_path).to eq(profile_path(@me))
 
       visit profile_path(@me)

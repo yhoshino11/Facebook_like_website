@@ -13,3 +13,4 @@
               .card-image style='display: inline;'
                 = link_to profile_path(user) do
                   = gravatar_tag user.email, :default, secure: true, class: 'thumbnail', id: 'profile'
+          h4= user.profile.name
