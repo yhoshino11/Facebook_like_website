@@ -52,12 +52,12 @@
     - if current_user == @user || current_user.friends_with?(@user) || @user.profile.f_list_privacy
       h2 Friends
       - @user.friends.each do |friend|
-        .col-xs-3
-          .card
-            .card-height-indicator
-            .card-content
-              .card-image style='display: inline;'
-                - unless friend.profile.nil?
+        - unless friend.profile.nil?
+          .col-xs-3
+            .card
+              .card-height-indicator
+              .card-content
+                .card-image style='display: inline;'
                   = link_to profile_path(friend) do
                     = gravatar_tag friend.email, :default, secure: true, class: 'thumbnail'
-                    h4= friend.profile.name
+            h4= friend.profile.name
