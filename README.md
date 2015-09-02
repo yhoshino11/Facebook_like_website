@@ -12,3 +12,4 @@
 ## Contributers
 - [Callum Carmicheal - Realtime Chat Part](https://github.com/CallumCarmicheal)
 - [dorumd - FrontEnd Bug Fixed](https://github.com/dorumd)
+- [Cruor99 - Advisor](https://github.com/cruor99)
