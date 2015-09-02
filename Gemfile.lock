@@ -105,6 +105,7 @@ GEM
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    geoip (1.6.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gravatarify (3.1.1)
@@ -300,6 +301,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   font-awesome-rails
+  geoip
   gravatarify
   guard-rspec
   has_friendship!

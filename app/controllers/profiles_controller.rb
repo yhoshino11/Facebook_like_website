@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @country = @user.country
   end
 
   def new
