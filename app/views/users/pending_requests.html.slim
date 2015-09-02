@@ -1,14 +1,14 @@
 .container
   .row
     - @p_requests.each do |p_req|
-      .col-xs-3
-        .card
-          .card-height-indicator
-          .card-content
-            .card-image style='display: inline;'
-              - unless p_req.profile.nil?
-                = link_to profile_path(p_req) do
+      - unless p_req.profile.nil?
+        .col-xs-3
+          = link_to profile_path(p_req) do
+            .card
+              .card-height-indicator
+              .card-content
+                .card-image style='display: inline;'
                   = gravatar_tag p_req.email, :default, secure: true, class: 'thumbnail'
-                p= link_to p_req.profile.name, profile_path(p_req)
-            = link_to 'Accept', accept_request_user_path(p_req), class: 'btn btn-success btn-xs'
-            = link_to 'Decline', decline_request_user_path(p_req), class: 'btn btn-danger btn-xs'
+            h4= link_to p_req.profile.name, profile_path(p_req)
+          = link_to 'Accept', accept_request_user_path(p_req), class: 'btn btn-success btn-xs'
+          = link_to 'Decline', decline_request_user_path(p_req), class: 'btn btn-danger btn-xs'
