@@ -9,6 +9,6 @@
               - unless p_req.profile.nil?
                 = link_to profile_path(p_req) do
                   = gravatar_tag p_req.email, :default, secure: true, class: 'thumbnail'
-                  p= link_to p_req.profile.name, profile_path(p_req)
+                h4= link_to p_req.profile.name, profile_path(p_req)
             = link_to 'Accept', accept_request_user_path(p_req), class: 'btn btn-success btn-xs'
             = link_to 'Decline', decline_request_user_path(p_req), class: 'btn btn-danger btn-xs'
