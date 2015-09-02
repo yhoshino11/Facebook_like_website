@@ -58,7 +58,39 @@ RSpec.describe 'All User', type: :feature, js: true do
       expect(current_path).to eq(profile_path(@me))
     end
 
-    it 'decline friend request'
+    it 'decline friend request' do
+      login_as(@me)
+      visit profile_path(@him)
+      expect(page).to have_css('.btn.f_req')
+
+      click_link 'Send Friend Request'
+      expect(page).to have_text('Sent a Friend Request')
+
+      logout(@me)
+
+      login_as(@him)
+
+      visit profile_path(@him)
+      expect(page).to have_text("It's you")
+      expect(page).to have_text(@him_prof.name)
+      expect(page).not_to have_text('Sent a Friend Request')
+      expect(page).to have_css('.btn-danger')
+
+      click_link 'Pending Friend Request 1'
+      sleep 1
+      expect(current_path).to eq(pending_requests_user_path(@him))
+      expect(page).to have_text(@me_prof.name)
+
+      click_link 'Decline'
+      sleep 1
+      # save_and_open_page
+      # expect(current_path).to eq(decline_request_user_path(@me))
+      expect(current_path).to eq(profile_path(@me))
+
+      visit profile_path(@me)
+      expect(current_path).to eq(profile_path(@me))
+      expect(page).not_to have_text('Decline')
+    end
     it 'remove friend'
     it 'check friendship'
     it 'check requested friends'
