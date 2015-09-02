@@ -62,7 +62,7 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile)
       .permit(:avatar, :status,
-              :sex, :name,
+              :sex, :name, :bitbucket,
               :skype, :twitter,
               :github, :livecodingtv,
               :born_country,

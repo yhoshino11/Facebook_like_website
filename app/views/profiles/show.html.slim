@@ -29,6 +29,9 @@
           - if @user.profile.github.present?
             = link_to "https://github.com/#{@user.profile.github}", target: '_blank' do
               = fa_icon 'github-alt', class: 'fa-3x social'
+          - if @user.profile.bitbucket.present?
+            = link_to "https://bitbucket.com/#{@user.profile.bitbucket}", target: '_blank' do
+              = fa_icon 'bitbucket-alt', class: 'fa-3x social'
           - if @user.profile.livecodingtv.present?
             = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
               = fa_icon 'desktop', class: 'fa-3x livecodingtv'

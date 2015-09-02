@@ -13,11 +13,13 @@
   = f.text_field :twitter,        class: 'form-control', placeholder: 'twitter'
   = f.label :github,              class: 'form-control'
   = f.text_field :github,         class: 'form-control', placeholder: 'github'
+  = f.label :bitbucket,           class: 'form-control'
+  = f.text_field :bitbucket,      class: 'form-control', placeholder: 'bitbucket'
   = f.label :livecodingtv,        class: 'form-control'
   = f.text_field :livecodingtv,   class: 'form-control', placeholder: 'livecodingtv'
   = f.label "I'm from ",          class: 'form-control'
   = f.select :born_country,       options_for_select(@countries, @country), {},  class: 'form-control'
   = f.label 'Languages I want to learn '
   = f.fields_for f.object.languages.build do |l|
-    = l.select :name, options_for_select(['Ruby', 'Python', 'Rust']), {}, class: 'form-control', multiple: true
+    = l.select :name,             options_for_select(['Ruby', 'Python', 'Rust']), {}, class: 'form-control', multiple: true
   = f.submit t('profile.submit'), class: 'btn btn-primary'
