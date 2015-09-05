@@ -12,7 +12,7 @@ RSpec.describe 'Signup', type: :feature, js: true do
       fill_in 'Password',              with: user.password
       fill_in 'Password confirmation', with: user.password
       click_button 'Sign up'
-      expect(page).to have_link(I18n.t('profile.empty'))
+      expect(current_path).to eq(profile_path(User.last))
     end
   end
 end

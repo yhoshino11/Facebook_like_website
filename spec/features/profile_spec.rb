@@ -15,8 +15,6 @@ RSpec.describe 'User', type: :feature, js: true do
       profile = build(:profile)
       fill_in 'name',                     with: profile.name
       select 'Male',                      from: 'profile_sex'
-      attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'avatar.png'))
       fill_in 'skype',        with: profile.skype
       fill_in 'twitter',      with: profile.twitter
       fill_in 'github',       with: profile.github
@@ -44,8 +42,6 @@ RSpec.describe 'User', type: :feature, js: true do
       profile1 = build(:profile)
       fill_in 'name',                     with: profile1.name
       select 'Male',                      from: 'profile_sex'
-      attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'cat.png'))
       fill_in 'skype',        with: profile1.skype
       fill_in 'twitter',      with: profile1.twitter
       fill_in 'github',       with: profile1.github
