@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
-  pending
+  describe 'without sign in' do
+    pending
+  end
 end

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Signup', type: :feature, js: true do
   context 'User' do
-    before { User.destroy_all }
     let(:user) { build(:user) }
 
     scenario 'with email & password & password confirmation' do

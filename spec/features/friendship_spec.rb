@@ -56,6 +56,9 @@ RSpec.describe 'All User', type: :feature, js: true do
       click_link @me_prof.name
       sleep 1
       expect(current_path).to eq(profile_path(@me))
+
+      click_link 'Accept'
+      expect(page).to have_text(@him.profile.name)
     end
 
     it 'decline friend request' do
