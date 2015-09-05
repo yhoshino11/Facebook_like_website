@@ -1,0 +1,5 @@
+- if current_user.can_see_friends?(@user)
+  h2 Friends
+  - @friends.each do |friend|
+    .col-xs-2
+      = render partial: 'users/s_profile', locals: { user: friend }

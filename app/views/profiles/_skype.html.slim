@@ -1,0 +1,3 @@
+- if @user.profile.skype.present?
+  = link_to "skype:#{@user.profile.skype}?call" do
+    = fa_icon 'skype', class: 'fa-3x social'

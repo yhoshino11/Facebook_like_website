@@ -4,12 +4,5 @@
       h3 Pending Friend Requests
   .row
     - @p_requests.each do |p_req|
-      - unless p_req.profile.nil?
-        .col-xs-2
-          = link_to profile_path(p_req) do
-            .card
-              .card-height-indicator
-              .card-content
-                .card-image style='display: inline;'
-                  = gravatar_tag p_req.email, :default, secure: true, class: 'thumbnail'
-            h4= link_to p_req.profile.name, profile_path(p_req)
+      .col-xs-2
+        = render partial: 's_profile', locals: { user: p_req }

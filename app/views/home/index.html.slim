@@ -4,12 +4,6 @@
       .col-sm-12
         = link_to t('profile.empty'), new_profile_path(current_user), class: 'btn btn-success btn-lg'
   .row
-    - Profile.all.each do |prof|
+    - @users.each do |user|
       .col-xs-4.col-sm-2
-        = link_to profile_path(prof.user) do
-          .card
-            .card-height-indicator
-            .card-content
-              .card-image style='display: inline;'
-                  = gravatar_tag prof.user.email, :default, secure: true, class: 'thumbnail', id: 'profile'
-          h4= prof.name
+        = render partial: 'users/s_profile', locals: { user: user }

@@ -30,4 +30,12 @@ class User < ActiveRecord::Base
     c_info = c.to_hash
     c_info[:country_name]
   end
+
+  def can_see_friends?(user)
+    self == user || friends_with?(user) || user.profile.f_list_privacy
+  end
+
+  def can_see_profile?(user)
+    friends_with?(user) || self == user || requested_friends.include?(user)
+  end
 end

@@ -1,0 +1,3 @@
+- if @user.profile.github.present?
+  = link_to "https://github.com/#{@user.profile.github}", target: '_blank' do
+    = fa_icon 'github-alt', class: 'fa-3x social'

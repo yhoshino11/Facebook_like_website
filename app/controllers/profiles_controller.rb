@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @country = @user.country
+    @country = "Signed in from #{@user.country}"
+    @friends = @user.friends.select do |friend|
+      !friend.profile.nil?
+    end
   end
 
   def new
@@ -20,7 +23,9 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      languages = params[:profile][:language][:name].select { |item| item.present? }
+      languages = params[:profile][:language][:name].select do |item|
+        item.present?
+      end
       languages.each do |lang|
         @profile.languages.create(name: lang)
       end
@@ -33,7 +38,9 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     if @profile.update_attributes(profile_params)
-      languages = params[:profile][:language][:name].select { |item| item.present? }
+      languages = params[:profile][:language][:name].select do |item|
+        item.present?
+      end
       @profile.languages.destroy_all if @profile.languages.exists?
       languages.each do |lang|
         @profile.languages.create(name: lang)

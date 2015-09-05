@@ -1,22 +1,15 @@
 .container
   .row
     .col-xs-3
-      .card
-        .card-height-indicator
-        .card-content
-          .card-image style='display: inline;'
-            - unless @user.profile.nil?
-              #profile= gravatar_tag @user.email, :default, secure: true, class: 'thumbnail'
+      = render partial: 'users/s_profile', locals: { user: @user }
     .col-xs-9
       h3= username
-      h3= "Signed in from #{@country}"
-      - if current_user.friends_with?(@user) || @user == current_user || current_user.requested_friends.include?(@user)
-        - if @user.profile.born_country.present?
-          h3= "I'm from #{@user.profile.born_country}"
-        - if @user.profile.status.present?
-          h3= "Status: #{@user.profile.status}"
+      h3= @country
+      - if current_user.can_see_profile?(@user)
+        = country
+        = status
         - if current_user.requested_friends.include?(@user)
-          = link_to 'Accept', accept_request_user_path(@user), class: 'btn btn-success btn-sm'
+          = link_to 'Accept',  accept_request_user_path(@user), class: 'btn btn-success btn-sm'
           = link_to 'Decline', decline_request_user_path(@user), class: 'btn btn-danger btn-sm'
       - elsif current_user.pending_friends.include?(@user)
         h4 Sent a Friend Request
@@ -28,27 +21,16 @@
     .col-sm-3
       - if @user == current_user
         p= link_to t('profile.edit'), manage_profile_path, class: 'btn btn-primary'
-        - if current_user.requested_friends.count > 0
-          p= link_to "Pending Friend Request #{current_user.requested_friends.count}", pending_requests_user_path(current_user), class: 'btn btn-danger'
+        = pending_friends
       - else
         br
       - unless @user.profile.nil?
-        - if current_user.friends_with?(@user) || @user == current_user || current_user.requested_friends.include?(@user)
-          - if @user.profile.skype.present?
-            = link_to "skype:#{@user.profile.skype}?call" do
-              = fa_icon 'skype', class: 'fa-3x social'
-          - if @user.profile.twitter.present?
-            = link_to "https://twitter.com/#{@user.profile.twitter}", target: '_blank' do
-              = fa_icon 'twitter', class: 'fa-3x social'
-          - if @user.profile.github.present?
-            = link_to "https://github.com/#{@user.profile.github}", target: '_blank' do
-              = fa_icon 'github-alt', class: 'fa-3x social'
-          - if @user.profile.bitbucket.present?
-            = link_to "https://bitbucket.org/#{@user.profile.bitbucket}/", target: '_blank' do
-              = fa_icon 'bitbucket', class: 'fa-3x social'
-          - if @user.profile.livecodingtv.present?
-            = link_to "https://www.livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
-              = fa_icon 'desktop', class: 'fa-3x livecodingtv'
+        - if current_user.can_see_profile?(@user)
+          = render partial: 'skype'
+          = render partial: 'twitter'
+          = render partial: 'github'
+          = render partial: 'bitbucket'
+          = render partial: 'lctv'
           - unless @user.profile.languages.nil?
             - if @user.profile.languages.count > 0
               h4 I want to learn
@@ -56,15 +38,4 @@
                 - @user.profile.languages.each do |lang|
                   li.programming= lang.name
   .row
-    - if current_user == @user || current_user.friends_with?(@user) || @user.profile.f_list_privacy
-      h2 Friends
-      - @user.friends.each do |friend|
-        - unless friend.profile.nil?
-          .col-xs-2
-            = link_to profile_path(friend) do
-              .card
-                .card-height-indicator
-                .card-content
-                  .card-image style='display: inline;'
-                      = gravatar_tag friend.email, :default, secure: true, class: 'thumbnail'
-              h4= friend.profile.name
+    = render partial: 'friends'
