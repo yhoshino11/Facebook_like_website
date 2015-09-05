@@ -45,7 +45,7 @@
             = link_to "https://bitbucket.org/#{@user.profile.bitbucket}/", target: '_blank' do
               = fa_icon 'bitbucket', class: 'fa-3x social'
           - if @user.profile.livecodingtv.present?
-            = link_to "https://livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
+            = link_to "https://www.livecoding.tv/#{@user.profile.livecodingtv}", target: '_blank' do
               = fa_icon 'desktop', class: 'fa-3x livecodingtv'
           - unless @user.profile.languages.nil?
             - if @user.profile.languages.count > 0

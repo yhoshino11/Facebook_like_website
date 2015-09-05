@@ -43,7 +43,7 @@ RSpec.describe 'All User', type: :feature, js: true do
       login_as(@him)
 
       visit profile_path(@him)
-      expect(page).to have_text("It's you")
+      expect(page).to have_text("It's You")
       expect(page).to have_text(@him_prof.name)
       expect(page).not_to have_text('Sent a Friend Request')
       expect(page).to have_css('.btn-danger')
@@ -56,6 +56,9 @@ RSpec.describe 'All User', type: :feature, js: true do
       click_link @me_prof.name
       sleep 1
       expect(current_path).to eq(profile_path(@me))
+
+      click_link 'Accept'
+      expect(page).to have_text(@him.profile.name)
     end
 
     it 'decline friend request' do
@@ -71,7 +74,7 @@ RSpec.describe 'All User', type: :feature, js: true do
       login_as(@him)
 
       visit profile_path(@him)
-      expect(page).to have_text("It's you")
+      expect(page).to have_text("It's You")
       expect(page).to have_text(@him_prof.name)
       expect(page).not_to have_text('Sent a Friend Request')
       expect(page).to have_css('.btn-danger')
@@ -81,6 +84,7 @@ RSpec.describe 'All User', type: :feature, js: true do
       expect(current_path).to eq(pending_requests_user_path(@him))
       expect(page).to have_text(@me_prof.name)
 
+      click_link @me_prof.name
       click_link 'Decline'
       sleep 1
       expect(current_path).to eq(profile_path(@me))

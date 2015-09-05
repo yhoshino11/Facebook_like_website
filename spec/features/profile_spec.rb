@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :feature, js: true do
-  before { User.destroy_all }
   context 'can' do
     before do
       country = ISO3166::Country.all_translated.sample
-      User.destroy_all
       @user = create(:user)
       login_as(@user)
       visit root_path
@@ -15,8 +13,6 @@ RSpec.describe 'User', type: :feature, js: true do
       profile = build(:profile)
       fill_in 'name',                     with: profile.name
       select 'Male',                      from: 'profile_sex'
-      attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'avatar.png'))
       fill_in 'skype',        with: profile.skype
       fill_in 'twitter',      with: profile.twitter
       fill_in 'github',       with: profile.github
@@ -44,8 +40,6 @@ RSpec.describe 'User', type: :feature, js: true do
       profile1 = build(:profile)
       fill_in 'name',                     with: profile1.name
       select 'Male',                      from: 'profile_sex'
-      attach_file('profile_avatar',
-                  Rails.root.join('spec', 'support', 'cat.png'))
       fill_in 'skype',        with: profile1.skype
       fill_in 'twitter',      with: profile1.twitter
       fill_in 'github',       with: profile1.github
@@ -60,5 +54,4 @@ RSpec.describe 'User', type: :feature, js: true do
       expect(page).to have_css('#profile')
     end
   end
-  after { User.destroy_all }
 end

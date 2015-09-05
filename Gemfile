@@ -12,7 +12,8 @@ gem 'font-awesome-rails'
 gem 'nested_form'
 gem 'countries'
 gem 'gravatarify'
-gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', branch: 'devel'
+gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git',
+                      branch: 'devel'
 gem 'geoip'
 
 group :development, :test do
@@ -21,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'simplecov', require: false
 end
 
 group :test do
