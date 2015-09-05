@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :pending_requests
       get :accept_request
       get :decline_request
+      get :unfriend
     end
   end
 

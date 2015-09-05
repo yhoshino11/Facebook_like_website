@@ -20,4 +20,10 @@ class UsersController < ApplicationController
     current_user.decline_request(@target)
     redirect_to profile_path(@target)
   end
+
+  def unfriend
+    @target = User.find(params[:id])
+    current_user.remove_friend(@target)
+    redirect_to profile_path(@target)
+  end
 end

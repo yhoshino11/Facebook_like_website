@@ -22,6 +22,8 @@
         h4 Sent a Friend Request
       - else
         = link_to 'Send Friend Request', send_request_user_path(@user), class: 'btn btn-info f_req'
+      - if current_user.friends_with?(@user)
+        = link_to 'Unfriend', unfriend_user_path(@user), class: 'btn btn-warning unfriend'
   .row
     .col-sm-3
       - if @user == current_user
