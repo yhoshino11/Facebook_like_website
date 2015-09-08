@@ -1,5 +1,6 @@
 # Facebook in Early Days ( Facebook like app )
-
+![All](https://raw.githubusercontent.com/yhoshino11/Facebook_like_website/develop/all.png)
+![Profile](https://raw.githubusercontent.com/yhoshino11/Facebook_like_website/develop/profile.png)
 ## DEMO
 [Heroku](https://agile-falls-3904.herokuapp.com/)
 
