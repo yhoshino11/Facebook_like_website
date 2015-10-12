@@ -7,3 +7,4 @@
 !/log/.keep
 /tmp
 public/system/
+/coverage
