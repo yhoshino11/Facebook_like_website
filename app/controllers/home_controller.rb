@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @users = User.all.select do |user|
-      !user.profile.nil?
+      user.profile.present?
     end
   end
 end

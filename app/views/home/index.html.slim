@@ -1,5 +1,5 @@
 .container
-  - if current_user.profile.nil?
+  - unless policy(current_user).with_profile?
     .row
       .col-sm-12
         = link_to t('profile.empty'), new_profile_path(current_user), class: 'btn btn-success btn-lg'

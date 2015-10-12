@@ -1,3 +1,3 @@
-- if @user.profile.bitbucket.present?
+- if policy(@user).bitbucket?
   = link_to "https://bitbucket.org/#{@user.profile.bitbucket}/", target: '_blank' do
     = fa_icon 'bitbucket', class: 'fa-3x social'

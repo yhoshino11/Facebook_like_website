@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
     @country = "Signed in from #{@user.country}"
     @friends = @user.friends.select do |friend|
-      !friend.profile.nil?
+      friend.profile.present?
     end
   end
 

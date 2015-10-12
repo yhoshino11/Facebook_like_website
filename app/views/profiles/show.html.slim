@@ -5,21 +5,21 @@
     .col-xs-9
       h3= username
       h3= @country
-      - if current_user.can_see_profile?(@user)
+      - if policy(@user).can_see?
         = country
         = status
-        - if current_user.requested_friends.include?(@user)
+        - if policy(@user).requested?
           = link_to 'Accept',  accept_request_user_path(@user), class: 'btn btn-success btn-sm'
           = link_to 'Decline', decline_request_user_path(@user), class: 'btn btn-danger btn-sm'
-      - elsif current_user.pending_friends.include?(@user)
+      - elsif policy(@user).pending?
         h4 Sent a Friend Request
       - else
         = link_to 'Send Friend Request', send_request_user_path(@user), class: 'btn btn-info f_req'
-      - if current_user.friends_with?(@user)
+      - if policy(@user).friends?
         = link_to 'Unfriend', unfriend_user_path(@user), class: 'btn btn-warning unfriend'
   .row
     .col-sm-3
-      - if @user == current_user
+      - if policy(@user).me?
         p= link_to t('profile.edit'), manage_profile_path, class: 'btn btn-primary'
         = pending_friends
       - else

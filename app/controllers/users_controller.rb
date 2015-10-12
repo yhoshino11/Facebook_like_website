@@ -31,5 +31,6 @@ class UsersController < ApplicationController
 
   def set_target
     @target = User.find(params[:id])
+    authorize @target, :other?
   end
 end

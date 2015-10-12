@@ -14,6 +14,7 @@ gem 'countries'
 gem 'gravatarify'
 gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', branch: 'devel'
 gem 'geoip'
+gem 'pundit'
 
 group :development, :test do
   gem 'sqlite3'

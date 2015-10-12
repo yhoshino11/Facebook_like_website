@@ -1,4 +1,4 @@
-- if current_user.can_see_friends?(@user)
+- if policy(@target).can_see?
   h2 Friends
   - @friends.each do |friend|
     .col-xs-2

@@ -1,3 +1,3 @@
-- if @user.profile.twitter.present?
+- if policy(@user).twitter?
   = link_to "https://twitter.com/#{@user.profile.twitter}", target: '_blank' do
     = fa_icon 'twitter', class: 'fa-3x social'
