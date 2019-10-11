@@ -6,6 +6,7 @@ require 'capybara/rails'
 require 'selenium-webdriver'
 require 'capybara/rspec'
 require 'devise'
+require 'brakeman'
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 Capybara.configure do |capybara_config|
@@ -41,6 +42,22 @@ RSpec.configure do |config|
   config.after(:suite) do
     DatabaseCleaner.clean
     Warden.test_reset!
+
+    # Brakeman
+    example_group = RSpec.describe('Brakeman Issues')
+    example = example_group.example('must have 0 Critical Security Issues') do
+      res = Brakeman.run app_path: "#{Rails.root}", output_files: ['brakeman.html']
+      serious = res.warnings.count { |w| w.confidence==0 }
+      puts "\n\nBrakeman Result:\n  Critical Security Issues = #{serious}"
+      expect(serious).to eq 0
+    end
+    puts "\nBrakeman Report available here: ./brakeman.html"
+    example_group.run
+    passed = example.execution_result.status == :passed
+    RSpec.configuration.reporter.example_failed example unless passed
+
+    # Rails Best Practices
+    exec("bundle exec rails_best_practices -f html")
   end
 
   config.before(:each) do

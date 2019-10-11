@@ -16,6 +16,9 @@ gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', b
 gem 'geoip'
 
 group :development, :test do
+  gem 'rails_best_practices', require: false
+  gem 'brakeman', require: false
+  gem 'rubocop', require: false
   gem 'sqlite3'
   gem 'guard-rspec'
   gem 'rspec-rails'
