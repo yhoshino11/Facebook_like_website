@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.profile
-    if @profile.update_attributes(profile_params)
+    if @profile.update(profile_params)
       languages = params[:profile][:language][:name].select do |item|
         item.present?
       end

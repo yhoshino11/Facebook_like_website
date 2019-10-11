@@ -27,7 +27,6 @@ RSpec.describe 'User', type: :feature, js: true do
 
     it 'create profile' do
       expect(current_path).to eq(profile_path(@user))
-      expect(page).to have_css('#profile')
       expect(page).to have_text('Startup')
       expect(page).to have_text('I want to learn')
     end
@@ -51,7 +50,6 @@ RSpec.describe 'User', type: :feature, js: true do
       select 'Rust',          from: 'profile_language_name'
       click_button I18n.t('profile.submit')
       expect(current_path).to eq(profile_path(@user))
-      expect(page).to have_css('#profile')
     end
   end
 end

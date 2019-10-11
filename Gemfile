@@ -25,13 +25,15 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot'
   gem 'faker'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 group :development do

@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :language do
-    name 'Ruby'
+    name { 'Ruby' }
   end
 end

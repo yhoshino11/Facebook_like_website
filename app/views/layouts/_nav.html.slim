@@ -3,7 +3,7 @@
     span.icon-bar
     span.icon-bar
     span.icon-bar
-  = link_to t('title'), root_path, class: 'navbar-brand'
+  = link_to I18n.t('title'), root_path, class: 'navbar-brand'
 - if user_signed_in?
   .navbar-collapse.collapse.navbar-responsive-collapse
     ul.nav.navbar-nav.navbar-right

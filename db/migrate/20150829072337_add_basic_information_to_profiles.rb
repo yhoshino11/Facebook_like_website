@@ -1,4 +1,4 @@
-class AddBasicInformationToProfiles < ActiveRecord::Migration
+class AddBasicInformationToProfiles < ActiveRecord::Migration[6.0]
   def change
     add_column :profiles, :born_country, :string
     add_column :profiles, :born_city, :integer

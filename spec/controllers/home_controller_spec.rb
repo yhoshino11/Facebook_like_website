@@ -1,22 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
-  describe 'with sign in' do
-    before do
-      @user = create(:user)
-      sign_in(@user)
+  describe 'GET #index' do
+
+    context 'when user signed in' do
+
+      render_views
+
+      before do
+        @user = create(:user)
+        sign_in(@user)
+      end
+
+      it 'render home/index' do
+        get :index
+        expect(response).to render_template :index
+      end
     end
 
-    it 'GET #index' do
-      get :index
-      expect(response).to render_template :index
-    end
-  end
-
-  describe 'without sign in' do
-    it 'GET #index' do
-      get :index
-      expect(response).to redirect_to(new_user_session_path)
+    context 'when user is not signed in' do
+      it 'redirect to sign in view' do
+        get :index
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
 end
