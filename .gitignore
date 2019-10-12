@@ -8,3 +8,5 @@
 /tmp
 public/system/
 /coverage
+brakeman.html
+rails_best_practices_output.html

@@ -11,8 +11,8 @@ RSpec.describe 'User', type: :feature, js: true do
       sleep 1
       expect(current_path).to eq(new_profile_path(@user))
       profile = build(:profile)
-      fill_in 'name',                     with: profile.name
-      select 'Male',                      from: 'profile_sex'
+      fill_in 'name',         with: profile.name
+      select 'Male',          from: 'profile_sex'
       fill_in 'skype',        with: profile.skype
       fill_in 'twitter',      with: profile.twitter
       fill_in 'github',       with: profile.github
@@ -37,8 +37,8 @@ RSpec.describe 'User', type: :feature, js: true do
       country1 = ISO3166::Country.all_translated.sample
 
       profile1 = build(:profile)
-      fill_in 'name',                     with: profile1.name
-      select 'Male',                      from: 'profile_sex'
+      fill_in 'name',         with: profile1.name
+      select 'Male',          from: 'profile_sex'
       fill_in 'skype',        with: profile1.skype
       fill_in 'twitter',      with: profile1.twitter
       fill_in 'github',       with: profile1.github

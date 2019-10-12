@@ -9,9 +9,9 @@ RSpec.describe ProfilesController, type: :controller do
 
       before do
         @user = create(:user)
-	@profile = create(:profile, user_id: @user.id)
+        @profile = create(:profile, user_id: @user.id)
         sign_in @user
-	get :show,  params: { id: @user.id }
+        get :show,  params: { id: @user.id }
       end
 
       it { expect(response).to render_template(:show, id: @user.id ) }

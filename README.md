@@ -14,3 +14,15 @@
 - [Callum Carmicheal - Realtime Chat Part](https://github.com/CallumCarmicheal)
 - [dorumd - FrontEnd Bug Fixed](https://github.com/dorumd)
 - [Cruor99 - Advisor](https://github.com/cruor99)
+
+## RUn Tests
+```
+$ bundle exec rspec
+```
+
+## Run Code Coverage
+```
+$ bundle exec rails_best_practices -f html
+$ bundle exec brakeman .
+$ bundle exec rubocop app spec
+```

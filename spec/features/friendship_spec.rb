@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'All User', type: :feature, js: true do
+
   context 'can' do
     before(:each) do
-      sleep 1
       User.destroy_all
-      sleep 1
       @me       = create(:user, email: 'yhoshino11@gmail.com')
       @him      = create(:user, email: 'yhoshino12@gmail.com')
       @her      = create(:user, email: 'yhoshino13@gmail.com')
